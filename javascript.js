@@ -11,17 +11,19 @@ if (process.argv[2] === 'spotify') {
 
 }
 
+if (process.argv[2] === 'events') {
+
+  bandTown(process.argv[3]);
+
+}
+
+
 
 if (process.argv[2] === 'movies') {
 
     movies(process.argv[3]);
 
 }
-
-
-
-
-
 
 function spotifySong() {
 
@@ -44,6 +46,16 @@ console.log("---",data.tracks.items[0]);
 }
 
 function bandTown() {
+
+  axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+
 
 }
 
